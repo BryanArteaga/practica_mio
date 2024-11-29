@@ -1,0 +1,6 @@
+export {Tutor, Tutorado, Tutoria, ITutor, Itutorado, Itutoria} from './data'
+export {recorrerTutor, recorrerTutorado, recorrerTutorias} from './Recorrido'
+export {BuscarTutorByid, BuscarTutoradoByid, BuscarTutoriasByid} from './callback'
+export {BuscarTutorByidUsingPromises, BuscarTutoradoByidUsingPromises, BuscarTutoriasByidUsingPromises} from './promises'
+export {BuscarTutorByIdaa, BuscarTutoradoByIdaa, BuscarTutoriasByIdaa} from './AsyncAwait'
+export {fetchData, IPost} from './RestService'

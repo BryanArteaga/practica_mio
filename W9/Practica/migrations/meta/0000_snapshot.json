@@ -1,0 +1,207 @@
+{
+  "id": "8b5f32c7-2b8e-4533-9924-67a6b9877c53",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.Tutor": {
+      "name": "Tutor",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "identificacion": {
+          "name": "identificacion",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "experticia": {
+          "name": "experticia",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "Tutor_identificacion_unique": {
+          "name": "Tutor_identificacion_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "identificacion"
+          ]
+        }
+      }
+    },
+    "public.Tutorado": {
+      "name": "Tutorado",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "identificacion": {
+          "name": "identificacion",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "Tutorado_identificacion_unique": {
+          "name": "Tutorado_identificacion_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "identificacion"
+          ]
+        }
+      }
+    },
+    "public.Tutoria": {
+      "name": "Tutoria",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "asignatura": {
+          "name": "asignatura",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "numero_horas": {
+          "name": "numero_horas",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha": {
+          "name": "fecha",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "hora": {
+          "name": "hora",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tutorId": {
+          "name": "tutorId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tutoradoId": {
+          "name": "tutoradoId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "Tutoria_tutorId_Tutor_id_fk": {
+          "name": "Tutoria_tutorId_Tutor_id_fk",
+          "tableFrom": "Tutoria",
+          "tableTo": "Tutor",
+          "columnsFrom": [
+            "tutorId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "Tutoria_tutoradoId_Tutorado_id_fk": {
+          "name": "Tutoria_tutoradoId_Tutorado_id_fk",
+          "tableFrom": "Tutoria",
+          "tableTo": "Tutorado",
+          "columnsFrom": [
+            "tutoradoId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.Usuario": {
+      "name": "Usuario",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "clave": {
+          "name": "clave",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "estado": {
+          "name": "estado",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
